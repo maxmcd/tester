@@ -22,12 +22,12 @@ func (t *Tester) Assert() *assert.Assertions {
 	return assert.New(t)
 }
 
-func (t *Tester) ErrorContains(err error, contains string) {
+func (t *Tester) ErrorContains(err error, contains string, msgAndArgs ...interface{}) {
 	if err == nil {
 		t.Assert().Error(err)
 		return
 	}
-	t.Assert().Contains(err.Error(), contains)
+	t.Assert().Contains(err.Error(), contains, msgAndArgs...)
 }
 
 type stackTracer interface {
