@@ -1,9 +1,9 @@
 package tester
 
 import (
-	"fmt"
 	"testing"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/pkg/errors"
 	"github.com/stretchr/testify/assert"
 )
@@ -47,9 +47,7 @@ func (t *Tester) PanicOnErr(err error, a ...interface{}) {
 }
 
 func Print(a ...interface{}) {
-	for _, ia := range a {
-		fmt.Printf("%+v\n", ia)
-	}
+	spew.Dump(a...)
 }
 
 func (t *Tester) Print(a ...interface{}) {
